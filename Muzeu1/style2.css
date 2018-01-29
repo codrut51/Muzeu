@@ -197,10 +197,10 @@
     border: 1px solid black;
 }
 
-    #backButton:active {
-        border: 1px solid white;
-        background-color: #343638;
-    }
+#backButton:active {
+    border: 1px solid white;
+    background-color: #343638;
+}
 
 #leftMenu {
     width: 100%;
@@ -256,10 +256,10 @@
     color: white;
 }
 
-    #leftImage:active, #rightImage:active {
-        border: 2px solid black;
-        background-color: #343638;
-    }
+#leftImage:active, #rightImage:active {
+    border: 2px solid black;
+    background-color: #343638;
+}
 
 #Image {
     width: 100%;
@@ -276,18 +276,6 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
-}
-
-#imageDescription {
-    width: 180px;
-    height: auto;
-    position: absolute;
-    bottom: 0;
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    margin-left: 40px;
 }
 
 #images {

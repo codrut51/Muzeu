@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title> Muzeu</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style2.css" />
 </head>
 <body id="body">
     <form id="form1" runat="server">
@@ -19,7 +19,7 @@
             <div id="footer">
                 <div id="innerFooter">
                     <div id="textFooter">Mai mult: </div>
-                    <div id="buttonFooter"><asp:Button ID="search" runat="server" /></div>
+                    <div id="buttonFooter"><asp:Button ID="search" runat="server" OnClick="search_Click" /></div>
                 </div>
             </div>
         </div>

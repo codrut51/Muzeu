@@ -63,7 +63,7 @@ if (footer != null || footer != undefined) {
 }
 
 if (leftContent != null || leftContent != undefined) {
-    leftContent.style.width = window.innerHeight + "px";
+    leftContent.style.height = window.innerHeight + "px";
 }
 
 window.onresize = function () {
@@ -117,7 +117,7 @@ window.onresize = function () {
     }
 
     if (leftContent != null || leftContent != undefined) {
-        leftContent.style.width = window.innerHeight + "px";
+        leftContent.style.height = window.innerHeight + "px";
     }
 
 }
