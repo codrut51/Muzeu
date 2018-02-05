@@ -11,4 +11,9 @@ public partial class Etaj2 : System.Web.UI.Page
     {
 
     }
+
+    protected void backButton_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Explore.aspx");
+    }
 }

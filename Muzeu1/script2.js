@@ -1,4 +1,4 @@
-﻿var common = ["body", "form1", "container"];
+﻿var common = ["body", "container"];
 
 var header = document.getElementById("header");
 var content = document.getElementById("content");

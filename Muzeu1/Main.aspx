@@ -5,12 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title> Muzeu</title>
-    <link rel="stylesheet" type="text/css" href="style2.css" />
+    <link rel="stylesheet" type="text/css" href="style1.css" />
 </head>
 <body id="body">
+    <div id="innerBody">
     <form id="form1" runat="server">
         <div id="container">
             <div id="header">
+                <div id="loginButton">
+                        <asp:Button ID="login" runat="server" Text="Login" />
+                </div>
                 <h2 id="title">~ Muzeul Țării Făgărașului "Valer Literat" ~</h2>
             </div>
             <div id="content">
@@ -24,6 +28,7 @@
             </div>
         </div>
     </form>
-    <script src="script.js"></script>
+    </div>
+    <script src="script1.js"></script>
 </body>
 </html>

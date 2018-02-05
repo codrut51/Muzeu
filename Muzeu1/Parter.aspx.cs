@@ -14,6 +14,6 @@ public partial class Parter : System.Web.UI.Page
 
     protected void backButton_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("Explore.aspx");
     }
 }

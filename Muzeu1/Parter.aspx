@@ -5,17 +5,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title> Muzeu</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style1.css" />
     <script src="images/jquery-3.1.0.js"></script>
 </head>
 
 <body id="body">
-    <form id="form1" runat="server">
+    <div id="innerBody">
         <div id="container1">
             <div id="leftContent">
-                <div id="divButton">
-                    <asp:Button ID="backButton" runat="server" Text="< Back" OnClick="backButton_Click" />
-                </div>
+                 <form id="form1" runat="server">
+                    <div id="divButton">
+                        <asp:Button ID="backButton" runat="server" Text="< Back" OnClick="backButton_Click" />
+                    </div>
+                 </form>
                 <div id="leftMenu">
                     <ul id="listMenu">
 
@@ -47,8 +49,8 @@
                 </div>
             </div>
         </div>
-    </form>
+    </div>
     <script src="imageScript1.js"></script>
-    <script src="script2.js"></script>
+    <script src="script1.js"></script>
 </body>
 </html>

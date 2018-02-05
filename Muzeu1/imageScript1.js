@@ -5,9 +5,15 @@
     }
 }
 
-$("#form1").submit(function (e) {
-    e.preventDefault();
-});
+//$("#form1").submit(function (e) {
+//    $("#form1").load(window.location.href + " #displayImage");
+//});
+
+var form1 = document.getElementById("form1");
+/*form1.onsubmit = function (e) {
+    $("#displayImage").load(document.URL + " #displayImage")
+    return false;
+}*/
 
 var images = [];
 var imagesDiv = document.getElementById("images");
@@ -39,10 +45,19 @@ if (images[index].Description != null) {
 } else {
     imageDescription.style.display = "none";
 }
+
+var listMenu = document.getElementById("listMenu");
+
+for (var i = 1; i < images.length; i++) {
+    if (images[i].Description != null) {
+        var itemList = document.createElement("li");
+        itemList.innerHTML = images[i].Description;
+        listMenu.appendChild(itemList);
+    }
+}
 displayImage.style.backgroundImage = "url('images/1/" + index + ".jpg')";
 document.getElementById("image" + index).style.opacity = "1";
 function nextImage() {
-
     document.getElementById("image" + index).style.opacity = "0.5";
     index++;
     if (index > 6) {

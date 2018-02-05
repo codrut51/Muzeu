@@ -17,7 +17,7 @@ for (var i = 1; i <= 18; i++) {
     element.style.backgroundSize = "cover";
     element.setAttribute("id", "image" + i);
     element.style.opacity = "0.5";
-    var img = new Image("images/2/" + i + ".jpg", "");
+    var img = new Image("images/2/" + i + ".jpg", null);
     images[i] = img;
     imagesDiv.appendChild(element);
 }
@@ -26,6 +26,15 @@ images[1].Description = "Intrare";
 images[5].Description = "Istoric";
 var index = 1;
 var displayImage = document.getElementById("displayImage");
+var listMenu = document.getElementById("listMenu");
+
+for (var i = 1; i < images.length; i++) {
+    if (images[i].Description != null) {
+        var itemList = document.createElement("li");
+        itemList.innerHTML = images[i].Description;
+        listMenu.appendChild(itemList);
+    }
+}
 var imageDescription = document.getElementById("imageDescription");
 if (images[index].Description != null) {
     imageDescription.style.display = "block";
@@ -35,8 +44,8 @@ if (images[index].Description != null) {
 }
 displayImage.style.backgroundImage = "url('images/2/" + index + ".jpg')";
 document.getElementById("image" + index).style.opacity = "1";
-function nextImage() {
 
+function nextImage() {
     document.getElementById("image" + index).style.opacity = "0.5";
     index++;
     if (index > 18) {
@@ -69,7 +78,3 @@ function prevImage() {
     }
     console.log(index);
 }
-
-$("#form1").submit(function (e) {
-    e.preventDefault();
-});
