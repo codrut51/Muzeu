@@ -17,20 +17,8 @@ public class Database
     {
         try
         {
-            Debug.WriteLine("This is a message");
             conn = new MySqlConnection(connStr);
             conn.Open();
-            Debug.WriteLine("This is another message");
-           /* CreateUser("andra.musca", "234@#$WER");
-            string sql = "SELECT * FROM Users";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
-            {
-                Console.WriteLine(rdr[0] + " -- " + rdr[1]);
-            }
-            rdr.Close();*/
         }
         catch(Exception ex)
         {
@@ -42,12 +30,16 @@ public class Database
     {
         try
         {
-            Debug.WriteLine("This is a message 1 ");
-            String sql = "INSERT INTO `users`(`Username`, `Password`) VALUES ('" + user +"','"+ pass +"')";
-            Debug.WriteLine(sql);
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-            Debug.WriteLine("This is a message another 1");
+            if (!CheckUser(user))
+            {
+                String sql = "INSERT INTO `users`(`Username`, `Password`) VALUES ('" + user + "','" + pass + "')";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                Debug.WriteLine("The user already exists!");
+            }
         }
         catch(Exception ex)
         {
@@ -55,8 +47,9 @@ public class Database
         }
     }
 
-    public Boolean Login(String user, String pass)
+    public String[] Login(String user, String pass)
     {
+        String[] rez = new String[3];
         try
         {
             String sql = "SELECT * FROM `users` WHERE Username = '"+user+"' AND Password = '" + pass + "'";
@@ -66,19 +59,106 @@ public class Database
             {
                 if (rdr.HasRows)
                 {
+                    rez[0] = rdr[0].ToString();
+                    rez[1] = rdr[1].ToString();
+                    rez[2] = rdr[2].ToString();
+                    rdr.Close();
+                    return rez;
+                } else
+                {
+                    rez = new String[0];
+                    rdr.Close();
+                    return rez;
+                }
+            }
+            rdr.Close();
+            return rez;
+        }
+        catch(Exception)
+        { 
+            rez = new String[0];
+            return rez;
+        }
+    }
+
+    public bool CheckUser(String user)
+    {
+        try
+        {
+            String sql = "SELECT * FROM `users` WHERE Username = '" + user + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                if (rdr.HasRows)
+                {
                     rdr.Close();
                     return true;
-                } else
+                }
+                else
                 {
                     rdr.Close();
                     return false;
                 }
             }
+            rdr.Close();
             return false;
         }
-        catch(Exception ex)
+        catch (Exception)
         {
             return false;
+        }
+    }
+    public bool CheckPath(String userID)
+    {
+        try
+        {
+            String sql = "SELECT * FROM `resume` WHERE ID = '" + userID + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                if (rdr.HasRows)
+                {
+                    rdr.Close();
+                    return true;
+                }
+                else
+                {
+                    rdr.Close();
+                    return false;
+                }
+            }
+            rdr.Close();
+            return false;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
+
+    public void AddToPath(String user,String userID, String path)
+    {
+
+        try
+        {
+            Debug.WriteLine(user + " " + userID + " " + path);
+            if (!CheckPath(userID))
+            {
+                String sql = "INSERT INTO `resume`(`ID`, `Path`) VALUES ('" + userID + "','" + path + "')";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }else
+            {
+                String sql = "UPDATE `resume` SET `ID`='" + userID + "',`Path`='"+ path + "' WHERE `ID` = '" + userID + "'";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("Wtf: " + ex.ToString());
         }
     }
 }

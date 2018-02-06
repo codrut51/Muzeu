@@ -13,7 +13,7 @@
         <div id="container">
             <div id="header">
                 <div id="loginButton">
-                        <asp:Button ID="login" runat="server" Text="Login" />
+                        <asp:Button ID="login" runat="server" Text="Login" OnClick="login_Click" />
                 </div>
                 <h2 id="title">~ Muzeul Țării Făgărașului "Valer Literat" ~</h2>
             </div>

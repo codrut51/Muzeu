@@ -18,4 +18,10 @@ public partial class Main : System.Web.UI.Page
             Response.Redirect("Explore.aspx", false);
             Context.ApplicationInstance.CompleteRequest();
     }
+
+    protected void login_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Login.aspx", false);
+        Context.ApplicationInstance.CompleteRequest();
+    }
 }

@@ -134,7 +134,11 @@ if (box != null || box != undefined) {
         if (box.checked) {
             if (confirm != null || confirm != undefined) {
                 confirm.style.display = "block";
-            }
+            } 
+        } else {
+            if (confirm != null || confirm != undefined) {
+                confirm.style.display = "none";
+            } 
         }
     }
 }

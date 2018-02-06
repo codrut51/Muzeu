@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title> Muzeu</title>
-    <link rel="stylesheet" type="text/css" href="script21.css" />
+    <link rel="stylesheet" type="text/css" href="style2.css" />
 </head>
 
 <body id="body">
@@ -23,8 +23,13 @@
                            <input type="text" name="username" id="username" runat="server"/></p>
                         <p><label for="password" id="pass"> Password: </label>
                            <input type="password" name="password" id="password" runat="server"/></p>
+                        <p id="confirmpassword"><label for="password1" id="pass1"> Confirm Password: </label>
+                           <input type="password" name="password1/" id="password1" runat="server"/></p>
                         <div id="buttons1"><asp:Button ID="login1" runat="server" Text="Log In" OnClick="login1_Click" />
                             <asp:Button ID="signup1" runat="server" Text="Sign Up" OnClick="signup1_Click" />
+                        </div>
+                        <div id="checkBox">
+                            <input type="checkbox" name="access" value="Account" id="account" runat="server"/> I don't have an account  
                         </div>
                     </div>
                     
@@ -38,6 +43,6 @@
        </div>
     </form>
     </div>
-    <script src="script1.js"></script>
+    <script src="script11.js"></script>
 </body>
 </html>
